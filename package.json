@@ -6,9 +6,9 @@
     "autoprefix": "postcss -c postcss.config.json",
     "autoprefix:test": "postcss -c ./test/postcss.config.json",
     "clean": "rimraf *.css && rimraf ./test/*.css",
-    "build:sass:test": "node-sass --output-style expanded ./test/test.scss ./test/test.css",
+    "build:sass:test": "node-sass --importer ./node_modules/frau-sass-importer/ --output-style expanded ./test/test.scss ./test/test.css",
     "postbuild:sass:test": "npm run autoprefix:test",
-    "build:sass": "node-sass --output-style expanded button.css.scss button.css",
+    "build:sass": "node-sass --importer ./node_modules/frau-sass-importer/ --output-style expanded button.css.scss button.css",
     "postbuild:sass": "npm run autoprefix",
     "prebuild": "npm run clean",
     "build": "npm run build:sass && npm run build:sass:test",
@@ -35,6 +35,7 @@
     "frau-sass-importer": "^0.3.0"
   },
   "devDependencies": {
+    "frau-sass-importer": "^0.3.0",
     "autoprefixer": "^6.1.2",
     "cpy": "^3.4.1",
     "csslint": "^0.10.0",
